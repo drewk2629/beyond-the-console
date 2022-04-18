@@ -1,0 +1,83 @@
+/* header / nav bar styles start */
+
+header {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* padding: 20px 35px; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+/* Overwrites materalize color theme */
+header nav.deep-purple.lighten-2 {
+  width: 100%;
+  background-color: black !important;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+header nav ul li a {
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* header nav ul li a:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px;
+    text-shadow: none;
+  } */
+
+/* hero style */
+.hero {
+  background-image: url("../images/HaloReachBackground.jpg");
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h2 {
+  font-size: 25px;
+  text-align: center;
+  color: black;
+  padding: 5px;
+  float: right;
+  margin-top: 9%;
+  margin-right: 5%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.black {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 50%;
+  width: 100%;
+}
+
+.game-type-title {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
+main {
+  flex: 1 0 auto;
+}

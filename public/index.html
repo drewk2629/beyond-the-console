@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond The Console</title>
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Import jquery cdn -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
+     <!-- The last CSS page takes priority -->
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    
+    
+
+</head>
+<body>
+  <!-- header and navigation -->
+    <header>
+      <div class="navbar-fixed ">
+        <nav class="deep-purple lighten-2">
+            <div class="nav-wrapper">
+              <a href="index.html" class="brand-logo">Beyond The Console</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <a class="sidenav-close" href="#!"></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Explore</a></li>
+                <li><a class="modal-trigger sidenav-close" href="#register">Register</a></li>
+                <li><a class="modal-trigger" href="#login">Log-in</a></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- the ul is for the sidenav on smaller screens -->
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="sass.html">Explore</a></li>
+            <!-- # targets the id of the register model we want to open -->
+            <li><a class="modal-trigger" href="#register">Register</a></li>
+            <!-- # targets the id of the login modal we want to open -->
+            <li><a class="modal-trigger" href="#login">Log-in</a></li>
+          </ul>
+      </div>
+    </header>
+
+    <!-- hero  -->
+    <section class="hero">
+      <h2>Not sure what
+        to play next?
+        Don't worry, we've got you covered.
+        Discover new games, keep track of the ones you want to play, and connect with friends.</h2>
+    </section>
+
+
+    <main>
+    <!-- Login modal -->
+    <div id="login" class="modal">
+      <div class="container">
+        <h3>Login</h3>
+        <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+<!-- TODO: MAKE SUBMIT BUTTON WORK -->
+      <button type="submit" id="add-user" class="btn btn-primary">Login</button>
+      <!-- TODO: Add checkbox remember me back -->
+      <!-- <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label> -->
+      </div>
+    <div class="modal-footer">
+      <input type="button" value="Cancel" onclick="history.go(-1)"/>
+    </div>
+    </div>
+
+    <!-- Register modal -->
+    <div id="register" class="modal">
+      <div class="container">
+        <div class="row">
+          <div class="col col-md-12">
+            <header class="create-user-wrap header-wrap">
+              <h3>Create Your Account</h3>
+              <h3 id="create-err-msg"></h3>
+            </header>
+      
+            <h3 id="err-msg"></h3>
+      
+            <form id= "create-form">
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputFirst">First Name</label>
+                  <input type="text" class="form-control" id="inputFirst" placeholder="John">
+                </div>
+              </div>
+      
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputLast">Last Name</label>
+                  <input type="text" class="form-control" id="inputLast" placeholder="Doe">
+                </div>
+              </div>
+      
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+              </div>
+      
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+              </div>
+      
+              <div>
+                <h2 id="message"></h2>
+              </div>
+      
+              <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- <div class="modal-content">
+        <h4>Create Your Account</h4>
+        <label for="firstname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+TODO: MAKE SUBMIT BUTTON WORK
+    <button type="submit">Login</button>
+      <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      </div>
+    <div class="modal-footer">
+      <input type="button" value="Cancel" onclick="history.go(-1)"/>     
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+    </div>
+    </div>
+<section style="display: flex;justify-content:space-between; column-gap: 20px;width: 100%;padding: 0px 20px;">
+  
+      <section class="black" style="width: 100%;max-width:50%;">
+        <h3 class="game-type-title"> Games I Have</h3>
+        <div class="carousel carousel-slider" data-indicators="true">
+          <div class="carousel-fixed-item">
+            <div class="container">
+              <a class="btn waves-effect white grey-text darken-text-2" href="https://codepen.io/collection/nbBqgY/" target="_blank">See Reviews</a>
+            </div>
+          </div>
+          <div class="carousel-item red lighten-2 white-text" href="#one!">
+            <div class="container">
+              <h2>Elden Ring</h2>
+              <p class="white-text">Elden Ring is an action role-playing game developed by FromSoftware and published by Bandai Namco Entertainment.</p>
+            </div>  
+          </div>
+          <div class="carousel-item amber darken-2 white-text" href="#two!">
+            <div class="container">
+              <h2>Triangle Strategy</h2>
+              <p class="white-text">Triangle Strategy is a tactical role-playing game developed and published by Square Enix, co-developed by Artdink, and published by Nintendo</p>
+            </div>  
+          </div>
+          <div class="carousel-item green white-text" href="#three!">
+            <div class="container">
+              <h2>Final Fantasy XIV: A Realm Reborn</h2>
+              <p class="white-text">Final Fantasy XIV is a massively multiplayer online role-playing game developed and published by Square Enix.</p>
+            </div>  
+          </div>
+          <div class="carousel-item blue white-text" href="#four!">
+            <div class="container">
+              <h2>Monopoly</h2>
+              <p class="white-text">Monopoly is a multi-player economics-themed board game.</p>
+            </div>  
+          </div>
+        </div>
+      </section>
+      <section class="black" style="width: 100%; max-width:50%">
+<h3 class="game-type-title">Games I Want</h3>
+      
+        <div class="carousel carousel-slider" data-indicators="true">
+          <div class="carousel-fixed-item">
+            <div class="container">
+              <a class="btn waves-effect white grey-text darken-text-2" href="https://codepen.io/collection/nbBqgY/" target="_blank">See Reviews</a>
+            </div>
+          </div>
+          <div class="carousel-item red lighten-2 white-text" href="#one!">
+            <div class="container">
+              <h2>Stratego</h2>
+              <p class="white-text">Stratego is a strategy board game for two players on a board of 10×10 squares.</p>
+            </div>  
+          </div>
+          <div class="carousel-item amber darken-2 white-text" href="#two!">
+            <div class="container">
+              <h2>The Game of Life</h2>
+              <p class="white-text">Also known simply as Life, is a board game that simulates a person's travels through his or her life</p>
+            </div>  
+          </div>
+          <div class="carousel-item green white-text" href="#three!">
+            <div class="container">
+              <h2>Kirby and the Forgotten Land</h2>
+              <p class="white-text">Join Kirby in an unforgettable journey through a mysterious world in a 3D platforming adventure</p>
+            </div>  
+          </div>
+          <div class="carousel-item blue white-text" href="#four!">
+            <div class="container">
+              <h2>MLB The Show 22</h2>
+              <p class="white-text">Every pitch. Every hit. Every win. Make your mark and Own The Show in MLB The SHow 22 on PS4. Whether you’re an aspiring rookie or veteran of the diamond, there are now more ways than ever to create and build your legacy. So step up to the plate and take your place amongst Baseball’s legends.</p>
+            </div>  
+          </div>
+        </div>
+      </section>
+</section>
+
+      <!-- <section class="row">
+      <section class="col s6">
+        <h1>Games I have </h1>
+        <hr/>
+          <div class="row">
+            <div class="card small">
+              <div class="card-image">
+                <img src="./assets/images/HaloReachBackground.jpg" alt="Fronite">
+                <span class="card-title">Fornite</span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div> -->
+      <!-- </section> -->
+    </section>
+    </main>
+    <footer>
+      
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./assets/js/scripts.js"></script>
+</body>
+</html>
