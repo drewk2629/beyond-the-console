@@ -134,11 +134,12 @@
 
    https://github.com/BeckyMWilson/Project-2
  </li>
+
 </ul>
 
 ### <h2><b>Screenshots</b></h2>
 
-![Project Logo](https://github.com/BeckyMWilson/Project-2/blob/main/public/assets/images/screenshot6.png)
+![logo1](https://user-images.githubusercontent.com/94206317/175792755-7b641c30-381f-494d-8fb1-851636ddd040.png)
 
 ![Kanban Page](https://github.com/BeckyMWilson/Project-2/blob/main/public/assets/images/kanban.png)
 
