@@ -13,6 +13,7 @@ header {
   top: 0;
   z-index: 9999;
 }
+
 /* Overwrites materalize color theme */
 header nav.deep-purple.lighten-2 {
   width: 100%;
@@ -34,13 +35,6 @@ header nav ul li a {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* header nav ul li a:hover {
-    background: var(--primary-color);
-    color: var(--secondary-color);
-    border-radius: 15px;
-    text-shadow: none;
-  } */
-
 /* hero style */
 .hero {
   background-image: url("../images/HaloReachBackground.jpg");
@@ -55,9 +49,7 @@ header nav ul li a {
   text-align: center;
   color: black;
   padding: 5px;
-  float: right;
-  margin-top: 9%;
-  margin-right: 5%;
+  text-shadow: 0px -1px 4px #512710;
 }
 
 body {
@@ -66,18 +58,166 @@ body {
   flex-direction: column;
 }
 
+/* Overwrites Materialize Code */
 .black {
   margin-top: 10px;
   margin-bottom: 10px;
-  max-width: 50%;
+  /* max-width: 50%; */
   width: 100%;
+  max-width: 409px !important;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .game-type-title {
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+.carouselimage1 {
+  width:100%;
+  height:auto;
+  /* background-image: url("../images/eldenRing.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+}
+
+.carouselimage2 {
+  background-image: url("../images/eldenRing.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carouselimage3 {
+  background-image: url("../images/finalFantasyXIV.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carouselimage4 {
+  background-image: url("../images/Monopoly.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carouselimage5 {
+  background-image: url("../images/Stratego.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carouselimage6 {
+  background-image: url("../images/the-game-of-life.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carouselimage7 {
+  background-image: url("../images/Kirby_and_The_Forgotten_Land_Icon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carouselimage8 {
+  background-image: url("../images/mlbtheshow22.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 
 main {
   flex: 1 0 auto;
 }
+
+/* to maintain image aspect ratio */
+.container-img {
+  width: auto !important;
+  height: 235px;
+}
+
+.container-img.small-image-border {
+  margin: 10px;
+  border: 2px solid white;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.container-game-title {
+  margin: 0px;
+  /* background-color: gray !important; */
+}
+
+.container-game-description {
+  max-height: 80px;
+  overflow: auto;
+  /* background-color: hsl(180deg 2% 46%) !important; */
+}
+
+/* Overwrites Materialize Code */
+.carousel {
+  height: 400px !important;
+}
+
+.carousel-item {
+  text-align: center !important;
+}
+
+.red.lighten-2 {
+  background: gray !important;
+}
+
+.amber.darken-2 {
+  background: gray !important;
+}
+
+.green {
+  background: gray !important;
+}
+
+.blue {
+  background: gray !important;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+/* width */
+.container-game-description::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+.container-game-description::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.container-game-description::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.container-game-description::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+.container {
+  width: 95% !important;
+}
+

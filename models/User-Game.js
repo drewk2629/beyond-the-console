@@ -1,34 +1,39 @@
-module.exports = function (sequelize, DataTypes) {
-    const User_Game = sequelize.define('User_Game', {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'user',
-            key: 'id'
-        }
-      },
-      game_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'game',
-            key: 'id'
-        }
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class User_Game extends Model {}
+
+User_Game.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'user',
+          key: 'id'
       }
-    },{
-      timestamps: true,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'user_game'
-    });
-  
-    return User_Game;
-  };
+    },
+    game_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'game',
+          key: 'id'
+      }
+    }
+  },{
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user_game'
+  });
+
+  module.exports = User_Game;
   

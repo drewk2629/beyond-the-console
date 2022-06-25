@@ -1,11 +1,24 @@
 const bcrypt = require('bcrypt');
 
-module.exports = function (sequelize, DataTypes) {
-  const User = sequelize.define('User', {
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
+
+User.init(
+  {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     firstName: {
       type: DataTypes.STRING
@@ -24,12 +37,9 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
     }
   }, {
+    sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
@@ -45,26 +55,4 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  // This will check if an unhashed password can be compared to the hashed password stored in our database
-  User.prototype.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-
-  // Compares passwords
-  User.prototype.comparePasswords = function (password, callback) {
-    bcrypt.compare(password, this.password, (error, isMatch) => {
-      if (error) {
-        return callback(error);
-      }
-      return callback(null, isMatch);
-    });
-  };
-
-  User.prototype.toJSON = function () {
-    const values = Object.assign({}, this.get());
-    delete values.password;
-    return values;
-  };
-
-  return User;
-};
+  module.exports = User;

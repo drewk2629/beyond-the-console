@@ -1,65 +1,32 @@
-require('dotenv').config();
+const path = require('path');
 const express = require('express');
-const exphbs = require('express-handlebars');
-const cookieParser = require('cookie-parser');
-const morgan = require('morgan');
-const passport = require('passport');
-const moment = require('moment');
-const helmet = require('helmet');
-const PORT = process.env.PORT || 3333;
+const routes = require('./controllers');
+const sequelize = require('./config/connection');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
-const db = require('./models');
-
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
-if (app.get('env') !== 'test') {
-  app.use(morgan('dev')); // Hook up the HTTP logger
-}
-
-app.use(express.static('public'));
-
-require('./config/passport')(db, app, passport); // pass passport for configuration
-
-// Define our routes
-const api_routes = require('./routes/apiRoutes')
-const html_routes = require('./routes/htmlRoutes')
-app.use('/api', api_routes(passport, db));
-// app.use(html_routes(db));
-
-// Secure express app
-app.use(helmet.hsts({
-  maxAge: moment.duration(1, 'years').asMilliseconds()
-}));
-
-// catch 404 and forward to error handler
-if (app.get('env') !== 'development') {
-  app.use((req, res, next) => {
-    const err = new Error('Not Found: ' + req.url);
-    err.status = 404;
-    next(err);
-  });
-}
-
-const syncOptions = {
-  force: process.env.FORCE_SYNC === 'true'
+const PORT = process.env.PORT || 3006;
+const sess = {
+  secret: 'superSecret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+      db: sequelize
+  })
 };
 
-if (app.get('env') === 'test') {
-  syncOptions.force = false;
-}
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(sess));
 
-db.sequelize.sync(syncOptions).then(() => {
-  if (app.get('env') !== 'test' && syncOptions.force) {
-    require('./db/seed')(db);
-  }
+app.use(routes);
 
+
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`App listening on port: ${PORT}`);
   });
 });
-
-module.exports = app;
